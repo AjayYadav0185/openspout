@@ -38,6 +38,28 @@ class Students extends CI_Controller
     }
 
 
+    public function get_one($id)
+    {
+        echo json_encode($this->Student_model->get($id));
+    }
+
+    public function update_ajax()
+    {
+        $id = $this->input->post('id');
+
+        $data = [
+            'name'  => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone')
+        ];
+
+        $this->Student_model->update($id, $data);
+
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'Student updated successfully'
+        ]);
+    }
 
     public function store_ajax()
     {

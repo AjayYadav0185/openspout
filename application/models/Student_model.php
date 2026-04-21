@@ -36,4 +36,6 @@ class Student_model extends CI_Model
         return $this->db->where('id', $id)
                         ->delete($this->table);
     }
+
+    
 }
